@@ -1,0 +1,148 @@
+﻿@page "/lista-personas"
+@using TRABAJO_PRACTICO_2_DE_PROGRAMACIÓN_MOVIL.Models
+
+<h3 class="mb-4">Lista de Personas</h3>
+
+<p class="text-muted">
+    En esta página se muestran 10 personas cargadas en memoria al iniciar el componente.
+</p>
+
+<table class="table table-striped table-bordered table-hover align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th>Imagen</th>
+            <th>ID</th>
+            <th>Nombre completo</th>
+            <th>Email</th>
+            <th>Domicilio</th>
+            <th>Fecha de nacimiento</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var persona in personas)
+        {
+            <tr>
+                <td>
+                    <img src="@persona.RutaImagen"
+                         alt="Imagen de persona"
+                         width="60"
+                         height="60"
+                         class="rounded-circle" />
+                </td>
+
+                <td>@persona.Id</td>
+                <td>@persona.NombreCompleto</td>
+                <td>@persona.Email</td>
+                <td>@persona.Domicilio</td>
+                <td>@persona.FechaNacimiento.ToString("dd/MM/yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    // Lista privada donde guardamos las personas que se van a mostrar en la tabla.
+    private List<Persona> personas = new();
+
+    // OnInitialized es un método del ciclo de vida de Blazor.
+    // Se ejecuta automáticamente cuando se carga este componente/página.
+    protected override void OnInitialized()
+    {
+        // Cargamos 10 personas ficticias en memoria.
+        // No usamos base de datos porque la consigna solo pide datos inicializados en el componente.
+        personas = new List<Persona>
+        {
+            new Persona
+            {
+                Id = 1,
+                NombreCompleto = "Juan Pérez",
+                Email = "juan.perez@email.com",
+                Domicilio = "Av. San Martín 123",
+                FechaNacimiento = new DateTime(1995, 5, 12),
+                RutaImagen = "/images/persona.png"
+            },
+            new Persona
+            {
+                Id = 2,
+                NombreCompleto = "María González",
+                Email = "maria.gonzalez@email.com",
+                Domicilio = "Belgrano 456",
+                FechaNacimiento = new DateTime(1998, 8, 25),
+                RutaImagen = "/images/persona.png"
+            },
+            new Persona
+            {
+                Id = 3,
+                NombreCompleto = "Carlos Rodríguez",
+                Email = "carlos.rodriguez@email.com",
+                Domicilio = "Rivadavia 789",
+                FechaNacimiento = new DateTime(1992, 3, 10),
+                RutaImagen = "/images/persona.png"
+            },
+            new Persona
+            {
+                Id = 4,
+                NombreCompleto = "Ana Martínez",
+                Email = "ana.martinez@email.com",
+                Domicilio = "Mitre 321",
+                FechaNacimiento = new DateTime(2000, 11, 2),
+                RutaImagen = "/images/persona.png"
+            },
+            new Persona
+            {
+                Id = 5,
+                NombreCompleto = "Lucas Fernández",
+                Email = "lucas.fernandez@email.com",
+                Domicilio = "Sarmiento 654",
+                FechaNacimiento = new DateTime(1997, 1, 18),
+                RutaImagen = "/images/persona.png"
+            },
+            new Persona
+            {
+                Id = 6,
+                NombreCompleto = "Sofía López",
+                Email = "sofia.lopez@email.com",
+                Domicilio = "Italia 987",
+                FechaNacimiento = new DateTime(1999, 6, 30),
+                RutaImagen = "/images/persona.png"
+            },
+            new Persona
+            {
+                Id = 7,
+                NombreCompleto = "Diego Ramírez",
+                Email = "diego.ramirez@email.com",
+                Domicilio = "España 147",
+                FechaNacimiento = new DateTime(1994, 9, 14),
+                RutaImagen = "/images/persona.png"
+            },
+            new Persona
+            {
+                Id = 8,
+                NombreCompleto = "Valentina Torres",
+                Email = "valentina.torres@email.com",
+                Domicilio = "Urquiza 258",
+                FechaNacimiento = new DateTime(2001, 12, 5),
+                RutaImagen = "/images/persona.png"
+            },
+            new Persona
+            {
+                Id = 9,
+                NombreCompleto = "Martín Castro",
+                Email = "martin.castro@email.com",
+                Domicilio = "Moreno 369",
+                FechaNacimiento = new DateTime(1996, 4, 21),
+                RutaImagen = "/images/persona.png"
+            },
+            new Persona
+            {
+                Id = 10,
+                NombreCompleto = "Camila Herrera",
+                Email = "camila.herrera@email.com",
+                Domicilio = "Alem 741",
+                FechaNacimiento = new DateTime(1993, 7, 9),
+                RutaImagen = "/images/persona.png"
+            }
+        };
+    }
+}
