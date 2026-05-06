@@ -1,0 +1,87 @@
+﻿@page "/login"
+
+<PageTitle>Login</PageTitle>
+
+<div class="container mt-4">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white">
+                    <h4 class="mb-0">Control de Acceso</h4>
+                </div>
+
+                <div class="card-body">
+
+                    <p class="text-muted">
+                        Ingrese usuario y contraseña para acceder al sistema.
+                    </p>
+
+                    <div class="mb-3">
+                        <label class="form-label">Usuario</label>
+
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Ingrese su usuario"
+                               @bind="usuario" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Contraseña</label>
+
+                        <input type="password"
+                               class="form-control"
+                               placeholder="Ingrese su contraseña"
+                               @bind="contrasena" />
+                    </div>
+
+                    <button class="btn btn-primary w-100"
+                            @onclick="ValidarIngreso">
+                        Ingresar
+                    </button>
+
+                    @if (!string.IsNullOrEmpty(mensaje))
+                    {
+                        <div class="alert @claseMensaje mt-3 mb-0">
+                            @mensaje
+                        </div>
+                    }
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+@code {
+    // Variable donde se guarda lo que el usuario escribe en el campo Usuario.
+    private string usuario = string.Empty;
+
+    // Variable donde se guarda lo que el usuario escribe en el campo Contraseña.
+    private string contrasena = string.Empty;
+
+    // Variable donde se guarda el mensaje que se mostrará en pantalla.
+    private string mensaje = string.Empty;
+
+    // Variable donde guardamos la clase Bootstrap del mensaje.
+    private string claseMensaje = string.Empty;
+
+    
+    private void ValidarIngreso()
+    {
+        // Validamos creedenciales.
+        if (usuario == "alumno" && contrasena == "1234")
+        {
+            mensaje = "Acceso permitido. Bienvenido al sistema.";
+            claseMensaje = "alert-success";
+        }
+        else
+        {
+            mensaje = "Usuario o contraseña incorrectos.";
+            claseMensaje = "alert-danger";
+        }
+    }
+}
