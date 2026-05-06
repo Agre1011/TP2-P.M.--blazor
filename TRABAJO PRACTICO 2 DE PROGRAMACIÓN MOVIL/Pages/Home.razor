@@ -1,7 +1,25 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Inicio</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="container mt-4">
 
-Welcome to your new app.
+    <div class="p-4 mb-4 bg-light rounded-3 shadow-sm">
+        <h1 class="display-6">Trabajo Práctico N°2</h1>
+        <p class="lead mb-0">
+            Aplicación Blazor WebAssembly para practicar componentes, parámetros,
+            modelos de datos, ciclo de vida y validación básica.
+        </p>
+    </div>
+
+    <h3 class="mb-3">Mensajes de bienvenida</h3>
+
+    <!--
+        Usamos el componente Saludo cuatro veces.
+    -->
+    <Saludo Nombre="Gabriel" />
+    <Saludo Nombre="Juan" />
+    <Saludo Nombre="María" />
+    <Saludo Nombre="Sofía" />
+
+</div>
