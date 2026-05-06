@@ -1,0 +1,29 @@
+# Archivos y carpetas de Visual Studio
+.vs/
+
+# Carpetas generadas al compilar proyectos .NET
+bin/
+obj/
+
+# Archivos compilados que no deben subirse al repositorio
+*.dll
+*.exe
+*.pdb
+
+# Archivos personales o temporales de Visual Studio
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos temporales y logs
+*.tmp
+*.temp
+*.log
+
+# Paquetes restaurados automáticamente
+packages/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
