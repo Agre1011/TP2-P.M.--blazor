@@ -1,0 +1,10 @@
+﻿<div class="alert alert-primary shadow-sm">
+    <h4 class="mb-0">Bienvenido al sistema, @Nombre</h4>
+</div>
+
+@code {
+    // Parameter permite que este componente reciba datos desde otro componente
+    
+    [Parameter]
+    public string Nombre { get; set; } = string.Empty;
+}
